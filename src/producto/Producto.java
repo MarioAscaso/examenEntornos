@@ -29,6 +29,10 @@ public class Producto {
         return referencia;
     }
 
+    public byte getNumUnidades() {
+        return numUnidades;
+    }
+
     public void setNumUnidades(byte numUnidades) {
         this.numUnidades = numUnidades;
     }

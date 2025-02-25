@@ -8,8 +8,8 @@ public class Output {
         System.out.print("""
                 1. - CREATE PRODUCT
                 2. - LIST PRODUCTS
-                3. - SELL PRODUCT
-                4. - UPDATE LIST PRODUCTS
+                3. - UPDATE LIST PRODUCTS
+                4. - SELL PRODUCTUPDATE LIST PRODUCTS
                 5. - EXIT SYSTEM
                 WHICH OPSTION DO YOU WANT TO DO:\s""");
     }

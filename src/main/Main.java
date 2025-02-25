@@ -59,6 +59,9 @@ public class Main {
             case SELL:
                 toSellProducts();
                 break;
+            case UPDATE:
+                updateProduct();
+                break;
             case EXIT:
                 output.exitSystem();
                 break;
@@ -96,6 +99,24 @@ public class Main {
                 output.askNumProducts();
                 byte numProducts = input.getIntValue();
                 producto.setNumUnidades(numProducts);
+                output.askModificationDate();
+                String modificationDate = input.getStringValue();
+                producto.setFechaModificacion(modificationDate);
+            }
+        }
+    }
+
+    public static void updateProduct() {
+        toListProducts();
+        output.askReference();
+        String reference = input.getStringValue();
+        iteratorProducts = listProducts.iterator();
+        while (iteratorProducts.hasNext()) {
+            if (reference.equals(producto.getReferencia())) {
+                output.askNumProducts();
+                byte numProducts = input.getIntValue();
+                byte numProductsLeft = (byte) (producto.getNumUnidades() - numProducts);
+                producto.setNumUnidades(numProductsLeft);
                 output.askModificationDate();
                 String modificationDate = input.getStringValue();
                 producto.setFechaModificacion(modificationDate);
