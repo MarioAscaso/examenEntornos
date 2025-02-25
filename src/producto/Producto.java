@@ -25,6 +25,18 @@ public class Producto {
         this.fechaModificacion = fechaModificacion;
     }
 
+    public String getReferencia() {
+        return referencia;
+    }
+
+    public void setNumUnidades(byte numUnidades) {
+        this.numUnidades = numUnidades;
+    }
+
+    public void setFechaModificacion(String fechaModificacion) {
+        this.fechaModificacion = fechaModificacion;
+    }
+
     @Override
     public String toString() {
         return "Producto{" +

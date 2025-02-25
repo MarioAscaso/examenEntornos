@@ -56,6 +56,9 @@ public class Main {
             case LIST:
                 toListProducts();
                 break;
+            case SELL:
+                toSellProducts();
+                break;
             case EXIT:
                 output.exitSystem();
                 break;
@@ -80,6 +83,23 @@ public class Main {
         while (iteratorProducts.hasNext()) {
             Producto producto = iteratorProducts.next();
             output.listProducts(producto);
+        }
+    }
+
+    public static void toSellProducts() {
+        toListProducts();
+        output.askReference();
+        String reference = input.getStringValue();
+        iteratorProducts = listProducts.iterator();
+        while (iteratorProducts.hasNext()) {
+            if (reference.equals(producto.getReferencia())) {
+                output.askNumProducts();
+                byte numProducts = input.getIntValue();
+                producto.setNumUnidades(numProducts);
+                output.askModificationDate();
+                String modificationDate = input.getStringValue();
+                producto.setFechaModificacion(modificationDate);
+            }
         }
     }
 
