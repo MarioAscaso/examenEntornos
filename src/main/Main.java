@@ -7,6 +7,7 @@ import validator.Validator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 public class Main {
 
@@ -24,6 +25,19 @@ public class Main {
     public static List<Producto> listProducts;
 
     public static void main(String[] args) {
+
         listProducts = new ArrayList<>();
     }
+
+    public static void createProduct(){
+        UUID uuid = UUID.randomUUID();
+        output.askReference();
+        String reference = input.getStringValue();
+        output.askNumProducts();
+        byte numProducts = input.getIntValue();
+        output.askCreationDate();
+        String creationDate = input.getStringValue();
+        listProducts.add(new Producto(uuid, reference, numProducts, creationDate));
+    }
+
 }
