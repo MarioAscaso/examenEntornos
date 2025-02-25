@@ -1,9 +1,11 @@
 package output;
 
+import producto.Producto;
+
 public class Output {
 
     public void showMenu(){
-        System.out.println("""
+        System.out.print("""
                 1. - CREATE PRODUCT
                 2. - LIST PRODUCTS
                 3. - SELL PRODUCT
@@ -16,4 +18,6 @@ public class Output {
     public void askCreationDate(){System.out.print("Creation date (YYYYMMDDTHH:mm): ");}
     public void askModificationDate(){System.out.print("Modification date (YYYYMMDDHH:mm): ");}
     public void exitSystem(){System.out.println("EXIT SYSTEM");}
+    public void headerListProducts(){System.out.println("Reference    NumberProducts    CreationDate    ModificationDate");}
+    public void listProducts(Producto producto){System.out.println(producto.toString());}
 }

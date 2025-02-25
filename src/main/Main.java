@@ -6,6 +6,7 @@ import producto.Producto;
 import validator.Validator;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,13 +24,46 @@ public class Main {
     public static Producto producto;
 
     public static List<Producto> listProducts;
+    public static Iterator<Producto> iteratorProducts;
 
     public static void main(String[] args) {
 
+        output = new Output();
+        input = new Input();
+        validator = new Validator();
+
         listProducts = new ArrayList<>();
+        iteratorProducts = listProducts.iterator();
+
+        int optionMenu;
+
+        do {
+            do {
+                output.showMenu();
+                optionMenu = input.getIntValue();
+            } while (!validator.validateOptionMenu(optionMenu));
+
+            doOption(optionMenu);
+        } while (optionMenu != EXIT);
+
     }
 
-    public static void createProduct(){
+    public static void doOption(int optionMenu) {
+        switch (optionMenu) {
+            case CREATE:
+                createProduct();
+                break;
+            case LIST:
+                toListProducts();
+                break;
+            case EXIT:
+                output.exitSystem();
+                break;
+            default:
+        }
+    }
+
+    public static void createProduct() {
         UUID uuid = UUID.randomUUID();
         output.askReference();
         String reference = input.getStringValue();
@@ -38,6 +72,15 @@ public class Main {
         output.askCreationDate();
         String creationDate = input.getStringValue();
         listProducts.add(new Producto(uuid, reference, numProducts, creationDate));
+    }
+
+    public static void toListProducts() {
+        output.headerListProducts();
+        iteratorProducts = listProducts.iterator();
+        while (iteratorProducts.hasNext()) {
+            Producto producto = iteratorProducts.next();
+            output.listProducts(producto);
+        }
     }
 
 }

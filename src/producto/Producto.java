@@ -24,4 +24,15 @@ public class Producto {
         this.fechaCreacion = fechaCreacion;
         this.fechaModificacion = fechaModificacion;
     }
+
+    @Override
+    public String toString() {
+        return "Producto{" +
+                "uuid=" + uuid +
+                ", referencia='" + referencia + '\'' +
+                ", numUnidades=" + numUnidades +
+                ", fechaCreacion='" + fechaCreacion + '\'' +
+                ", fechaModificacion='" + fechaModificacion + '\'' +
+                '}';
+    }
 }
